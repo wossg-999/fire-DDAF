@@ -1,0 +1,11 @@
+########################## run ##########################
+python train.py --cfg models/DDAF.yaml --data data/fire.yaml --batch-size 16 
+
+python compress.py --data data/fire.yaml --weights runs/train/exp164/weights/best.pt --epochs 230 --batch-size 16 --hyp data/hyps/hyp.scratch-low.yaml  --prune_method lamp --speed_up 1.5
+
+########################## environment ##########################
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple torch-pruning==1.2.4 thop
+
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+########################## dataset original path ##########################
+data/images
